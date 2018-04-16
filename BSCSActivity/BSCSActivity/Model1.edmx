@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="csactivityModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="csactivityModelStoreContainer">
+          <EntitySet Name="tcourses" EntityType="csactivityModel.Store.tcourses" store:Type="Tables" Schema="csactivity" />
+          <EntitySet Name="tstudents" EntityType="csactivityModel.Store.tstudents" store:Type="Tables" Schema="csactivity" />
+        </EntityContainer>
+        <EntityType Name="tcourses">
+          <Key>
+            <PropertyRef Name="COURSE_ID" />
+          </Key>
+          <Property Name="COURSE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COURSE_NAME" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="tstudents">
+          <Key>
+            <PropertyRef Name="STUDENT_ID" />
+          </Key>
+          <Property Name="STUDENT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="25" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="25" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="25" />
+          <Property Name="COURSE_ID" Type="int" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="csactivityModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="csactivityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tcourses" EntityType="csactivityModel.tcours" />
+          <EntitySet Name="tstudents" EntityType="csactivityModel.tstudent" />
+          <AssociationSet Name="tcourststudent" Association="csactivityModel.tcourststudent">
+            <End Role="tcours" EntitySet="tcourses" />
+            <End Role="tstudent" EntitySet="tstudents" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tcours">
+          <Key>
+            <PropertyRef Name="COURSE_ID" />
+          </Key>
+          <Property Type="Int32" Name="COURSE_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="COURSE_NAME" />
+          <NavigationProperty Name="tstudents" Relationship="csactivityModel.tcourststudent" FromRole="tcours" ToRole="tstudent" />
+        </EntityType>
+        <EntityType Name="tstudent">
+          <Key>
+            <PropertyRef Name="STUDENT_ID" />
+          </Key>
+          <Property Type="Int32" Name="STUDENT_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LAST_NAME" />
+          <Property Type="String" Name="FIRST_NAME" />
+          <Property Type="String" Name="ADDRESS" />
+          <NavigationProperty Name="tcour" Relationship="csactivityModel.tcourststudent" FromRole="tstudent" ToRole="tcours" />
+        </EntityType>
+        <Association Name="tcourststudent">
+          <End Type="csactivityModel.tcours" Role="tcours" Multiplicity="1" />
+          <End Type="csactivityModel.tstudent" Role="tstudent" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="csactivityModelStoreContainer" CdmEntityContainer="csactivityEntities">
+          <EntitySetMapping Name="tcourses">
+            <EntityTypeMapping TypeName="csactivityModel.tcours">
+              <MappingFragment StoreEntitySet="tcourses">
+                <ScalarProperty Name="COURSE_NAME" ColumnName="COURSE_NAME" />
+                <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tstudents">
+            <EntityTypeMapping TypeName="csactivityModel.tstudent">
+              <MappingFragment StoreEntitySet="tstudents">
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="tcourststudent" TypeName="csactivityModel.tcourststudent" StoreEntitySet="tstudents">
+            <EndProperty Name="tstudent">
+              <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+            </EndProperty>
+            <EndProperty Name="tcours">
+              <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="csactivityModel.tcours" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583326" />
+        <EntityTypeShape EntityType="csactivityModel.tstudent" Width="1.5" PointX="4.25" PointY="0.5" Height="1.9802864583333335" />
+        <AssociationConnector Association="csactivityModel.tcourststudent">
+          <ConnectorPoint PointX="2.25" PointY="1.5478417968749998" />
+          <ConnectorPoint PointX="4.25" PointY="1.5478417968749998" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="csactivityModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="csactivityModelStoreContainer">
+    <EntitySet Name="tcourses" EntityType="csactivityModel.Store.tcourses" store:Type="Tables" Schema="csactivity" />
+    <EntitySet Name="tstudents" EntityType="csactivityModel.Store.tstudents" store:Type="Tables" Schema="csactivity" />
+  </EntityContainer>
+  <EntityType Name="tcourses">
+    <Key>
+      <PropertyRef Name="COURSE_ID" />
+    </Key>
+    <Property Name="COURSE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="COURSE_NAME" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="tstudents">
+    <Key>
+      <PropertyRef Name="STUDENT_ID" />
+    </Key>
+    <Property Name="STUDENT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="25" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="25" />
+    <Property Name="ADDRESS" Type="varchar" MaxLength="25" />
+    <Property Name="COURSE_ID" Type="int" />
+  </EntityType>
+</Schema>

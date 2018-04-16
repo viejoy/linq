@@ -1,0 +1,11 @@
+D:\NJA CS3A\BSCSActivity\BSCSActivity\bin\Debug\BSCSActivity.exe.config
+D:\NJA CS3A\BSCSActivity\BSCSActivity\bin\Debug\BSCSActivity.exe
+D:\NJA CS3A\BSCSActivity\BSCSActivity\bin\Debug\BSCSActivity.pdb
+D:\NJA CS3A\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.Form1.resources
+D:\NJA CS3A\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.Properties.Resources.resources
+D:\NJA CS3A\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.csproj.GenerateResource.Cache
+D:\NJA CS3A\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.exe
+D:\NJA CS3A\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.pdb
+D:\This PC\Documents\BSCSActivity\BSCSActivity\bin\Debug\BSCSActivity.exe.config
+D:\This PC\Documents\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.exe
+D:\This PC\Documents\BSCSActivity\BSCSActivity\obj\x86\Debug\BSCSActivity.pdb

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="csactivityModelStoreContainer" CdmEntityContainer="csactivityEntities">
+    <EntitySetMapping Name="tcourses">
+      <EntityTypeMapping TypeName="csactivityModel.tcours">
+        <MappingFragment StoreEntitySet="tcourses">
+          <ScalarProperty Name="COURSE_NAME" ColumnName="COURSE_NAME" />
+          <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tstudents">
+      <EntityTypeMapping TypeName="csactivityModel.tstudent">
+        <MappingFragment StoreEntitySet="tstudents">
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tcourststudent" TypeName="csactivityModel.tcourststudent" StoreEntitySet="tstudents">
+      <EndProperty Name="tstudent">
+        <ScalarProperty Name="STUDENT_ID" ColumnName="STUDENT_ID" />
+      </EndProperty>
+      <EndProperty Name="tcours">
+        <ScalarProperty Name="COURSE_ID" ColumnName="COURSE_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
